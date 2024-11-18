@@ -4,7 +4,7 @@ import datetime
 
 # Configuración inicial
 st.title("App de Finanzas Personales")
-st.write("Esta app te ayudará a gestionar tus finanzas personales. Creada por Sebastian")
+st.write("Esta app te ayudará a gestionar tus finanzas personales. Creada por Sebastian Rodriguez Suarez")
 
 # Configuración de la base de datos (archivo CSV)
 archivo_csv = "finanzas.csv"
@@ -86,6 +86,12 @@ elif seccion == "Metas de Ahorro":
     st.header("Metas de Ahorro")
     meta_ahorro = st.number_input("Establece tu meta de ahorro mensual ($):", min_value=0.0, step=0.01)
     st.write(f"Tu meta de ahorro mensual actual es: ${meta_ahorro:.2f}")
+    # Convertir la columna "Fecha" al tipo datetime y manejar errores
+    if not datos.empty:  # Solo si el DataFrame no está vacío
+        datos["Fecha"] = pd.to_datetime(datos["Fecha"], errors='coerce')
+    
+        # Eliminar filas con fechas no válidas
+        datos = datos.dropna(subset=["Fecha"])
 
     mes_actual = datetime.date.today().month
     anio_actual = datetime.date.today().year
