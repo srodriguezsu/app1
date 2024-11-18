@@ -14,12 +14,12 @@ Creado por: Sebastian Rodriguez Suarez
 st.sidebar.header("Parámetros de Inversión")
 
 # Monto inicial
-monto_inicial = st.sidebar.number_input(
+monto_inicial = st.number_input(
     "Monto inicial ($)", min_value=0.0, value=1000.0, step=100.0
 )
 
 # Contribución periódica
-contribucion_periodica = st.sidebar.number_input(
+contribucion_periodica = st.number_input(
     "Contribución periódica ($)", min_value=0.0, value=100.0, step=10.0
 )
 
