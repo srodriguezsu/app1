@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-
+import altair as alt
 # Título y descripción
 st.title("Simulador de Crecimiento de Inversiones")
 st.write("""
@@ -73,15 +72,17 @@ saldo_final = df_resultados["Saldo"].iloc[-1]
 st.metric("Saldo Final", f"${saldo_final:,.2f}")
 
 # Gráfica
-st.subheader("Crecimiento de la Inversión")
-fig, ax = plt.subplots()
-ax.plot(df_resultados["Mes"], df_resultados["Saldo"], label="Saldo acumulado", color="blue")
-ax.set_xlabel("Meses")
-ax.set_ylabel("Saldo ($)")
-ax.set_title("Proyección del Crecimiento de la Inversión")
-ax.grid(True)
-ax.legend()
-st.pyplot(fig)
+st.subheader("Crecimiento de la Inversión (Gráfica)")
+
+# Crear gráfica interactiva con Altair
+grafica = alt.Chart(df_resultados).mark_line(color="blue").encode(
+    x=alt.X("Mes", title="Meses"),
+    y=alt.Y("Saldo", title="Saldo ($)")
+).properties(
+    title="Proyección del Crecimiento de la Inversión"
+)
+
+st.altair_chart(grafica, use_container_width=True)
 
 # Mostrar tabla de resultados
 st.subheader("Detalles de la Simulación")
