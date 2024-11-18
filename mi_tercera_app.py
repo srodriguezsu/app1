@@ -4,7 +4,7 @@ import datetime
 
 # Configuración inicial
 st.title("App de Finanzas Personales")
-st.write("Esta app te ayudará a gestionar tus finanzas personales.")
+st.write("Esta app te ayudará a gestionar tus finanzas personales. Creada por Sebastian")
 
 # Configuración de la base de datos (archivo CSV)
 archivo_csv = "finanzas.csv"
