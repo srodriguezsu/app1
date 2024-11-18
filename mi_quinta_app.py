@@ -7,6 +7,7 @@ st.title("Simulador de Crecimiento de Inversiones")
 st.write("""
 Esta app te permite proyectar el crecimiento de tus inversiones bajo diferentes escenarios. 
 Puedes ajustar el monto inicial, las contribuciones periódicas, el rendimiento esperado y la duración de la inversión.
+Creado por: Sebastian Rodriguez Suarez
 """)
 
 # Parámetros de entrada
