@@ -4,7 +4,7 @@ import os
 
 # Configuración inicial
 st.title("Calculadora de PAPA")
-st.write("Esta aplicación te ayudará a calcular tu PAPA global y el PAPA por tipología de asignaturas.")
+st.write("Esta aplicación te ayudará a calcular tu PAPA global y el PAPA por tipología de asignaturas. Creado por Sebastián Rodríguez Suarez")
 
 # Archivo CSV para almacenar la información de materias
 archivo_csv = "materias.csv"
