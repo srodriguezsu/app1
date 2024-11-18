@@ -32,7 +32,9 @@ if seccion == "Registro de Finanzas":
 
     if st.button("Registrar"):
         nueva_fila = {"Fecha": fecha, "Tipo": tipo, "Categoría": categoria, "Monto": monto, "Descripción": descripcion}
-        datos = datos.append(nueva_fila, ignore_index=True)
+        nueva_fila = pd.DataFrame([nueva_fila])  # Convertir el diccionario en un DataFrame
+        datos = pd.concat([datos, nueva_fila], ignore_index=True)  # Concatenar filas
+
         datos.to_csv(archivo_csv, index=False)
         st.success("Registro guardado correctamente.")
 
