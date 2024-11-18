@@ -28,7 +28,7 @@ seccion = st.sidebar.selectbox(
 if seccion == "Agregar Materia":
     st.header("Agregar Materia")
     nombre = st.text_input("Nombre de la materia")
-    tipologia = st.selectbox("Tipología de la materia", ["Obligatoria", "Electiva", "Libre elección"])
+    tipologia = st.selectbox("Tipología de la materia", ["Obligatoria", "Optativa", "Libre elección"])
     creditos = st.number_input("Número de créditos", min_value=1, step=1)
     nota = st.number_input("Nota obtenida", min_value=0.0, max_value=5.0, step=0.1)
 
